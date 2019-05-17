@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 public class Beer  {
 
     private @Id @GeneratedValue Long id;
-    private @NotEmpty(message = "name must not be empty") String name;
+    private /*@NotEmpty(message = "name must not be empty")*/ String name;
     private String color;
     private String origin;
     private String description;

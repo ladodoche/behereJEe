@@ -26,13 +26,18 @@ public class BeerController {
     }
 
     /** Post user **/
-    @PostMapping(value = "/beers")
-    public static ResponseEntity<Beer> addBeer(@Valid @RequestBody Beer newBeer) {
-        BeerController.addBeer(newBeer);
-        return new ResponseEntity<Beer>(newBeer, HttpStatus.OK);
-        //throw new BeerNotFoundException("aaaaaaaaaaaaaaaa");
-        //return repository.save(newBeer);
+    @PostMapping("/beers")
+    Beer newbeer(@RequestBody Beer newBeer) {
+        System.out.println("ok");
+        return repository.save(newBeer);
     }
+    //@ResponseStatus(HttpStatus.CREATED)
+    /*ResponseEntity addBeer(@Valid @RequestBody Beer newBeer) {
+        System.out.println("aaaaaaaaaaaaaaa");
+        return ResponseEntity
+                .status(HttpStatus.FORBIDDEN)
+                .body("Error Message");
+    }*/
 
     /** Get one party **/
     @GetMapping("/beers/{id}")
